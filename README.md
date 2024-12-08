@@ -1,6 +1,8 @@
 # Fall CS378 Midterm Project: Quantum Among Us
 ### Akshat Kumar, Joseph Suess
 
+![amongus](https://github.com/user-attachments/assets/bd8089a0-8918-4490-932d-f8a29f815607)
+
 ## Background and rules
 Among Us was released in late 2018, but did not boom until mainstream popularity in 2020. It is a simplistic game of social deduction in a spaceship setting. The game is easy to understand. Every player, but one, is a crewmate aboard a ship with certain tasks to complete while trying to stay alive. However one of the players is an imposter. The imposter’s mission is to kill all the crewmates without getting caught. Crewmates must therefore avoid death and deduce who they believe the imposter is so that they can eject them from the spaceship. The game ends when the imposter has been discovered or every crewmate has been killed. The Quantum Implementation does not derail significantly from the core game. Every player, at the start of the game is told their role, which is chosen at random. Only 1 imposter is allowed. Let n be the number of players, including the imposter. 
 
