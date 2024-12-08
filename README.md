@@ -21,16 +21,19 @@ The old state of ∣111⟩ is now transformed to the new state: $\frac{| 110 \ra
 The night phase is followed by the day/voting phase where every player is given the opportunity to vote on who they believe the imposter is. When one votes on another player, that player's qubit is modified by a phase shift of π/n.  Using the principle of Quantum Interference, these phase shifts from different player’s votes will positively interfere to add up to a total phase which represents the number of votes a certain qubit receives. To measure this interference, we first put the qubits in a superposition with a Hadamard gate. This puts the qubit in the following state:
 $\frac{| 0 \rangle - | 1 \rangle}{\sqrt{2}}$
 Since the phase gate is defined by the following gate:
+
 <img width="153" alt="Screen Shot 2024-12-07 at 8 29 20 PM" src="https://github.com/user-attachments/assets/1fa6c09a-25e5-4ad8-a84e-c7d96b1559e5">
 
 
 An application of the P gate with lambda = π/n will affect the state in the following way:
 \frac{| 0 \rangle - e^{i\pi/n}| 1 \rangle}{\sqrt{2}}
 Afterwards, a second H gate is applied to undo the superposition and interfere the different phases. This creates the following state
-121+eiπ/n∣0⟩ +1-eiπ/n∣1⟩ 
+$\frac{1}{2}\left [ (1+e^{i\pi/n})|0\rangle (1-e^{i\pi/n})|1\rangle \right ]$
 We know that when measuring qubits, the outcome’s probability is defined as:
-Prob[0] = 1+eiπ/n22
-Prob[1] = 1-eiπ/n22
+Prob[0] = \left|\frac{(1+e^{i\pi/n})}{2} \right|^{2}
+Prob[1] = \left|\frac{(1-e^{i\pi/n})}{2} \right|^{2}
+
 Therefore, a simulation which measures the outcome of 1024 shots will likely show a distribution of measurements that represent these probabilities. We can use this idea over multiple qubits where the qubit with the largest phase will have the highest probability of being 1. We have now created a way to use Quantum Interference to create a voting system. Ties on player votes are broken by Quantum Randomness where it is unlikely that two qubits will have the exact same number of counts. If that were to happen a simple coin toss determines the unlucky player to be eliminated. However, the imposter has another trick up their sleeve, At the start of the game, the imposter is given n // 3 sabotages. If the imposter chooses to use their sabotage, they too, will get a vote, potentially skewing the results without the others knowing! 
 
+## How to Win
 These rounds continue until the game ends with an Imposter or crewmate win. This game is a game of social deduction, so the crewmates greatest strength is their attentiveness in detecting suspicious acts from other players. The imposter’s strategy is to withhold their sabotages until the later stages of the game. Since people aren’t likely to vote on you in the beginning, there is no need to muddy the vote. However, a sabotage should not always be used in situations where there is only 1 crewmate since the result is a 50/50 regardless of whether the sabotage was used or not.
