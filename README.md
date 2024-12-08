@@ -15,16 +15,17 @@ Suppose there are three players and the imposter (qubit 0) chooses to attempt to
 
 <img width="376" alt="Screen Shot 2024-12-07 at 8 12 13 PM" src="https://github.com/user-attachments/assets/1b4e41cb-6e23-4b9a-bc4f-61005c3b5942">
 
-The old state of ∣111⟩ is now transformed to the new state: $\frac{| 110 \rangle - | 001 \rangle}{\sqrt{2}}$
-(∣110⟩ - ∣001⟩)/sqrt(2)b. When collapsed, this means that there are two outcomes, the imposter is killed and the two crewmates live, or the crewmates die and the imposter survives. Collapsing these superpositions is done by measuring the circuit after a simulation with 1024 shots. Whichever result had the higher outcome, is the final state. The dead player is announced and we check if the game has ended or not. 
+The old state of ∣111⟩ is now transformed to the new state: $\frac{| 110 \rangle - | 001 \rangle}{\sqrt{2}}$. When collapsed, this means that there are two outcomes, the imposter is killed and the two crewmates live, or the crewmates die and the imposter survives. Collapsing these superpositions is done by measuring the circuit after a simulation with 1024 shots. Whichever result had the higher outcome, is the final state. The dead player is announced and we check if the game has ended or not. 
 
+## Explanation of Interference Feature
 The night phase is followed by the day/voting phase where every player is given the opportunity to vote on who they believe the imposter is. When one votes on another player, that player's qubit is modified by a phase shift of π/n.  Using the principle of Quantum Interference, these phase shifts from different player’s votes will positively interfere to add up to a total phase which represents the number of votes a certain qubit receives. To measure this interference, we first put the qubits in a superposition with a Hadamard gate. This puts the qubit in the following state:
-∣0⟩ + ∣1⟩ 2
+$\frac{| 0 \rangle - | 1 \rangle}{\sqrt{2}}$
 Since the phase gate is defined by the following gate:
+<img width="153" alt="Screen Shot 2024-12-07 at 8 29 20 PM" src="https://github.com/user-attachments/assets/1fa6c09a-25e5-4ad8-a84e-c7d96b1559e5">
 
 
 An application of the P gate with lambda = π/n will affect the state in the following way:
-∣0⟩ +eiπ/n ∣1⟩ 2
+\frac{| 0 \rangle - e^{i\pi/n}| 1 \rangle}{\sqrt{2}}
 Afterwards, a second H gate is applied to undo the superposition and interfere the different phases. This creates the following state
 121+eiπ/n∣0⟩ +1-eiπ/n∣1⟩ 
 We know that when measuring qubits, the outcome’s probability is defined as:
