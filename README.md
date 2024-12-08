@@ -32,8 +32,8 @@ An application of the P gate with lambda = π/n will affect the state in the fol
 Afterwards, a second H gate is applied to undo the superposition and interfere the different phases. This creates the following state
 $\frac{1}{2}\left [ (1+e^{i\pi/n})|0\rangle (1-e^{i\pi/n})|1\rangle \right ]$
 We know that when measuring qubits, the outcome’s probability is defined as:
-Prob[0] = \left|\frac{(1+e^{i\pi/n})}{2} \right|^{2}
-Prob[1] = \left|\frac{(1-e^{i\pi/n})}{2} \right|^{2}
+Prob[0] = $\left|\frac{(1+e^{i\pi/n})}{2} \right|^{2}$
+Prob[1] = $\left|\frac{(1-e^{i\pi/n})}{2} \right|^{2}$
 
 Therefore, a simulation which measures the outcome of 1024 shots will likely show a distribution of measurements that represent these probabilities. We can use this idea over multiple qubits where the qubit with the largest phase will have the highest probability of being 1. We have now created a way to use Quantum Interference to create a voting system. Ties on player votes are broken by Quantum Randomness where it is unlikely that two qubits will have the exact same number of counts. If that were to happen a simple coin toss determines the unlucky player to be eliminated. However, the imposter has another trick up their sleeve, At the start of the game, the imposter is given n // 3 sabotages. If the imposter chooses to use their sabotage, they too, will get a vote, potentially skewing the results without the others knowing! 
 
